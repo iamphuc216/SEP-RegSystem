@@ -30,7 +30,7 @@
         android:id="@+id/toUserList" />
 
     <Button
-        android:text="Create a new class"
+        android:text="Manage classes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/toUserList"

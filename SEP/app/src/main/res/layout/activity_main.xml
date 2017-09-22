@@ -72,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Andy"
+        android:text="FirstName"
         android:ems="10"
         android:layout_below="@+id/signUp"
         android:layout_alignStart="@+id/signUp"
@@ -91,7 +91,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Chen"
+        android:text="LastName"
         android:ems="10"
         android:id="@+id/lastName"
         android:layout_below="@+id/firstName"
@@ -102,7 +102,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Where"
+        android:text="Religion"
         android:ems="10"
         android:layout_alignTop="@+id/firstName"
         android:layout_alignParentEnd="true"
@@ -116,7 +116,7 @@
         android:layout_alignBottom="@+id/lastName"
         android:layout_alignEnd="@+id/PasswordField"
         android:id="@+id/userType"
-        android:text="1" />
+        android:text="UserType" />
 
     <Button
         android:text="Not yet finished survey?"
