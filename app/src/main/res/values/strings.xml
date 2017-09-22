@@ -18,4 +18,5 @@
         <item>Function3</item>
     </string-array>
     <string name="title_activity_entry">EntryActivity</string>
+    <string name="title_activity_student">StudentActivity</string>
 </resources>
