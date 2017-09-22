@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "771150829072",
+    "firebase_url": "https://sepfirebaseproject.firebaseio.com",
+    "project_id": "sepfirebaseproject",
+    "storage_bucket": "sepfirebaseproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:771150829072:android:40c4f46e905409c5",
+        "android_client_info": {
+          "package_name": "com.example.andy.sep"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "771150829072-evn9cr5u5aac4b0qqeruvreuiac1bg92.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.andy.sep",
+            "certificate_hash": "1916112432e2c20a433244118b87d326fa7b86ec"
+          }
+        },
+        {
+          "client_id": "771150829072-r3lr0dor7hdh791080kn5rlkd9r8vsml.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtx9WNUZIf5Jtqirui2ssEa8-y8ITOnik"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "771150829072-r3lr0dor7hdh791080kn5rlkd9r8vsml.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
