@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.AdminMainActivity"
+            android:name=".view.AdminActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -29,7 +29,16 @@
         <activity
             android:name=".view.StudentActivity"
             android:label="@string/title_activity_student"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".view.ClassEditActivity"
+            android:label="@string/title_activity_class_edit"
+            android:parentActivityName=".view.AdminActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.uts.andy.RegSystem.view.AdminActivity" />
+        </activity>
     </application>
 
 </manifest>

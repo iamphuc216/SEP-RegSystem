@@ -15,8 +15,9 @@
     <string-array name="nav_item_activity_titles">
         <item>Function1</item>
         <item>Function2</item>
-        <item>Function3</item>
+        <item>Class Manager</item>
     </string-array>
     <string name="title_activity_entry">EntryActivity</string>
     <string name="title_activity_student">StudentActivity</string>
+    <string name="title_activity_class_edit">Class Editor</string>
 </resources>

@@ -12,7 +12,7 @@
         <item
             android:id="@+id/nav_function3"
 
-            android:title="function3" />
+            android:title="Class Manager" />
 
     </group>
 </menu>

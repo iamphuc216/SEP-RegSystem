@@ -11,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,7 +23,7 @@ import com.uts.andy.RegSystem.Fragments.AdminFunctionThreeFragment;
 import com.uts.andy.RegSystem.Fragments.AdminFunctionTwoFragment;
 import com.uts.andy.RegSystem.R;
 
-public class AdminMainActivity extends AppCompatActivity {
+public class AdminActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private DrawerLayout drawer;
     private View navHeader;
@@ -35,6 +36,9 @@ public class AdminMainActivity extends AppCompatActivity {
     private static final String TAG_TWO = "two";
     private static final String TAG_THREE = "three";
     public static String CURRENT_TAG = TAG_ONE;
+
+    private final String KEY_NAVINDEX = "KEY_NAVINDEX";
+    private final String KEY_CURRENT_TAG = "KEY_CURRENT_TAG";
 
     private String[] activityTitles;
 
@@ -58,6 +62,12 @@ public class AdminMainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             navItemIndex = 0;
             CURRENT_TAG = TAG_ONE;
+            Log.d("DEBUG onCreate", CURRENT_TAG + " is null");
+            loadFragment();
+        } else {
+            navItemIndex = savedInstanceState.getInt(KEY_NAVINDEX);
+            CURRENT_TAG = savedInstanceState.getString(KEY_CURRENT_TAG);
+            Log.d("DEBUG Oncreate", CURRENT_TAG);
             loadFragment();
         }
 
@@ -173,7 +183,7 @@ public class AdminMainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             firebaseAuth.signOut();
-            startActivity(new Intent(AdminMainActivity.this, EntryActivity.class));
+            startActivity(new Intent(AdminActivity.this, EntryActivity.class));
             finish();
             return true;
         }
@@ -182,4 +192,17 @@ public class AdminMainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(KEY_NAVINDEX, navItemIndex);
+        outState.putString(KEY_CURRENT_TAG, CURRENT_TAG);
+        Log.d("DEBUG ONSAVE", CURRENT_TAG);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("DEBUG", "avtivity destory");
+    }
 }

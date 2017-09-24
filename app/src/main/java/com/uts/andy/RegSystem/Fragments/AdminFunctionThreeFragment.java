@@ -1,19 +1,43 @@
 package com.uts.andy.RegSystem.Fragments;
 
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.uts.andy.RegSystem.Adapter.ClassListViewHolder;
 import com.uts.andy.RegSystem.R;
+import com.uts.andy.RegSystem.model.Class;
+import com.uts.andy.RegSystem.view.ClassEditActivity;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class AdminFunctionThreeFragment extends Fragment {
+    private RecyclerView mRecyclerView;
+    private FirebaseRecyclerAdapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private ArrayList<Class> mClassArrayList = new ArrayList<Class>();
 
+    private DatabaseReference mFirebaseDatabase;
+    private FirebaseDatabase mFirebaseInstance;
 
     public AdminFunctionThreeFragment() {
         // Required empty public constructor
@@ -24,7 +48,81 @@ public class AdminFunctionThreeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_admin_function_three, container, false);
+        View view = inflater.inflate(R.layout.fragment_admin_class_manager, container, false);
+
+        //setUpClass();
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.Admin_classList);
+        mRecyclerView.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(getContext());
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        mFirebaseInstance = FirebaseDatabase.getInstance();
+        mFirebaseDatabase = mFirebaseInstance.getReference("class");
+
+        final ProgressDialog progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
+        mAdapter = new FirebaseRecyclerAdapter<Class, ClassListViewHolder>(Class.class, R.layout.item_class_list, ClassListViewHolder.class, mFirebaseDatabase) {
+            @Override
+            protected void populateViewHolder(ClassListViewHolder holder, Class currentClass, int position) {
+                //holder.mClassNameTextView.setText(currentClass.getClassName());
+                //holder.mClassSizeTextView.setText(String.valueOf(currentClass.getSize()) + " slots remain");
+                holder.setmClassNameTextView(currentClass.getClassName());
+                holder.setmClassSizeTextView(String.valueOf(currentClass.getSize()) + " slots remain");
+
+            }
+        };
+
+        mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot classSnapShot : dataSnapshot.getChildren()) {
+                    Class current = classSnapShot.getValue(Class.class);
+                    Log.d("DEBUG", current.getClassName());
+                    Log.d("DEBUG", String.valueOf(current.getSize()));
+                    mClassArrayList.add(current);
+                    mAdapter.notifyDataSetChanged();
+                    Log.d("DEBUG", String.valueOf(mClassArrayList.size()));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        progressDialog.dismiss();
+
+        //mAdapter = new ClassListAdapter(mClassArrayList, ADMIN_CLASSMANAGER);
+        mRecyclerView.setAdapter(mAdapter);
+        //mAdapter.notifyDataSetChanged();
+
+        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "编辑课程", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                startActivity(new Intent(getContext(), ClassEditActivity.class));
+
+            }
+        });
+
+        return view;
     }
 
+    private void setUpClass() {
+        Class classOne = new Class("Coding Class", 10);
+        Class classTwo = new Class("Math class", 5);
+        Class classThree = new Class("Music", 10);
+        mClassArrayList.add(classOne);
+        mClassArrayList.add(classTwo);
+        mClassArrayList.add(classThree);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mAdapter.cleanup();
+    }
 }
