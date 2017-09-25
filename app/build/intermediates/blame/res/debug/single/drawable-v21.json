@@ -1,0 +1,54 @@
+[
+    {
+        "merged": "D:\\AndroidStudioProjects\\SEP-RegSystem\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\fui_idp_button_background_google.xml",
+        "source": "C:\\Users\\iamji\\.android\\build-cache\\4a4576fe8ec95065c873f581387341be42029843\\output\\res\\drawable-v21\\fui_idp_button_background_google.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SEP-RegSystem\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\fui_idp_button_background_phone.xml",
+        "source": "C:\\Users\\iamji\\.android\\build-cache\\4a4576fe8ec95065c873f581387341be42029843\\output\\res\\drawable-v21\\fui_idp_button_background_phone.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SEP-RegSystem\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\avd_show_password.xml",
+        "source": "C:\\Users\\iamji\\.android\\build-cache\\2173cf75b7f70b4865dc620c5b5445faabb6125c\\output\\res\\drawable-v21\\avd_show_password.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SEP-RegSystem\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\fui_idp_button_background_facebook.xml",
+        "source": "C:\\Users\\iamji\\.android\\build-cache\\4a4576fe8ec95065c873f581387341be42029843\\output\\res\\drawable-v21\\fui_idp_button_background_facebook.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SEP-RegSystem\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\fui_idp_button_background_email.xml",
+        "source": "C:\\Users\\iamji\\.android\\build-cache\\4a4576fe8ec95065c873f581387341be42029843\\output\\res\\drawable-v21\\fui_idp_button_background_email.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SEP-RegSystem\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\design_bottom_navigation_item_background.xml",
+        "source": "C:\\Users\\iamji\\.android\\build-cache\\2173cf75b7f70b4865dc620c5b5445faabb6125c\\output\\res\\drawable-v21\\design_bottom_navigation_item_background.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SEP-RegSystem\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\iamji\\.android\\build-cache\\938d46f8e0568beec39c223bbb71635f98f5d2aa\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SEP-RegSystem\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\notification_action_background.xml",
+        "source": "C:\\Users\\iamji\\.android\\build-cache\\938d46f8e0568beec39c223bbb71635f98f5d2aa\\output\\res\\drawable-v21\\notification_action_background.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SEP-RegSystem\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\avd_hide_password.xml",
+        "source": "C:\\Users\\iamji\\.android\\build-cache\\2173cf75b7f70b4865dc620c5b5445faabb6125c\\output\\res\\drawable-v21\\avd_hide_password.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SEP-RegSystem\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "C:\\Users\\iamji\\.android\\build-cache\\938d46f8e0568beec39c223bbb71635f98f5d2aa\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SEP-RegSystem\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\design_password_eye.xml",
+        "source": "C:\\Users\\iamji\\.android\\build-cache\\2173cf75b7f70b4865dc620c5b5445faabb6125c\\output\\res\\drawable-v21\\design_password_eye.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SEP-RegSystem\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\fui_idp_button_background_twitter.xml",
+        "source": "C:\\Users\\iamji\\.android\\build-cache\\4a4576fe8ec95065c873f581387341be42029843\\output\\res\\drawable-v21\\fui_idp_button_background_twitter.xml"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\SEP-RegSystem\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\iamji\\.android\\build-cache\\938d46f8e0568beec39c223bbb71635f98f5d2aa\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
+    }
+]
