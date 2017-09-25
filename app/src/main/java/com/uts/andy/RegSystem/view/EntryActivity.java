@@ -15,12 +15,14 @@ import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.ErrorCodes;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.uts.andy.RegSystem.R;
+import com.uts.andy.RegSystem.model.User;
 
 public class EntryActivity extends AppCompatActivity {
 
@@ -28,6 +30,7 @@ public class EntryActivity extends AppCompatActivity {
     public static final String USER_TYPE_ADMIN = "admin";
     public static final String USER_TYPE_STUDENT = "student";
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    FirebaseDatabase databaseInstance = FirebaseDatabase.getInstance();
     DatabaseReference ref;
 
     @Override
@@ -40,9 +43,10 @@ public class EntryActivity extends AppCompatActivity {
         if (firebaseAuth.getCurrentUser() == null) {
             signIn();
         } else {
-            startActivity(new Intent(EntryActivity.this, AdminActivity.class));
+            /*startActivity(new Intent(EntryActivity.this, AdminActivity.class));
             finish();
-            //signIn();
+            */
+            getPersonalized();
         }
 
         Button signInButton = (Button) findViewById(R.id.buttonSignIn);
@@ -81,13 +85,13 @@ public class EntryActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 //Log.d("DEBUG", "Meiyouyonghu");
 
-                if (firebaseAuth.getCurrentUser() != null) {
+                /*if (firebaseAuth.getCurrentUser() != null) {
                     final ProgressDialog progressDialog = new ProgressDialog(this);
                     progressDialog.setMessage("Personalized Your Experience");
                     progressDialog.show();
                     Log.d("DEBUG", "youyonghu");
                     //User currentUser = new User(firebaseAuth.getCurrentUser().getUid(), firebaseAuth.getCurrentUser().getEmail());
-                    FirebaseDatabase databaseInstance = FirebaseDatabase.getInstance();
+
                     final String uID = firebaseAuth.getCurrentUser().getUid();
 
                     ref = databaseInstance.getReference("user").child(uID).child("type");
@@ -100,7 +104,7 @@ public class EntryActivity extends AppCompatActivity {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             String userType = dataSnapshot.getValue(String.class);
-                            Log.d("DEBUG", userType);
+                            //Log.d("DEBUG", userType);
                             if (userType.equals(USER_TYPE_ADMIN)) {
                                 startActivity(new Intent(EntryActivity.this, AdminActivity.class));
                                 progressDialog.dismiss();
@@ -109,6 +113,13 @@ public class EntryActivity extends AppCompatActivity {
                                 startActivity(new Intent(EntryActivity.this, StudentActivity.class));
                                 progressDialog.dismiss();
                                 finish();
+                            } else {
+                                FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+                                User newUser = new User(firebaseUser.getDisplayName(), firebaseUser.getEmail(), USER_TYPE_STUDENT);
+
+                                setUpNewUser(newUser, firebaseUser.getUid());
+                                startActivity(new Intent(EntryActivity.this, StudentActivity.class));
+
                             }
                         }
 
@@ -119,7 +130,8 @@ public class EntryActivity extends AppCompatActivity {
                     });
 
 
-                }
+                }*/
+                getPersonalized();
 
 
                 return;
@@ -143,6 +155,57 @@ public class EntryActivity extends AppCompatActivity {
             }
 
             showSnackbar("unknown_sign_in_response");
+        }
+    }
+
+    private void setUpNewUser(User user, String uID) {
+        ref = databaseInstance.getReference("user");
+        ref.child(uID).setValue(user);
+    }
+
+    private void getPersonalized() {
+        if (firebaseAuth.getCurrentUser() != null) {
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setMessage("Personalized Your Experience");
+            progressDialog.show();
+            //Log.d("DEBUG", "youyonghu");
+            final String uID = firebaseAuth.getCurrentUser().getUid();
+
+            ref = databaseInstance.getReference("user").child(uID).child("type");
+
+            final String currentUserEmail = firebaseAuth.getCurrentUser().getEmail();
+            Log.d("DEBUG", currentUserEmail);
+            Log.d("DEBUG", uID);
+
+            ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String userType = dataSnapshot.getValue(String.class);
+                    if (userType != null) Log.d("DEBUG", userType);
+                    if (userType == null){
+                        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+                        User newUser = new User(firebaseUser.getDisplayName(), currentUserEmail, USER_TYPE_STUDENT);
+                        setUpNewUser(newUser, uID);
+                        startActivity(new Intent(EntryActivity.this, StudentActivity.class));
+                    }
+                    else if (userType.equals(USER_TYPE_ADMIN)) {
+                        startActivity(new Intent(EntryActivity.this, AdminActivity.class));
+                        progressDialog.dismiss();
+                        finish();
+                    } else if (userType.equals(USER_TYPE_STUDENT)) {
+                        startActivity(new Intent(EntryActivity.this, StudentActivity.class));
+                        progressDialog.dismiss();
+                        finish();
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+
         }
     }
 

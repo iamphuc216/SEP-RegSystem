@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.uts.andy.RegSystem.R;
-import com.uts.andy.RegSystem.model.Recruiter;
+import com.uts.andy.RegSystem.model.User;
 
 import java.util.ArrayList;
 
@@ -15,25 +15,26 @@ import java.util.ArrayList;
  * Created by iamji on 2017/9/24.
  */
 
-public class RecruiterListAdapter extends RecyclerView.Adapter<RecruiterListAdapter.ViewHolder> {
-    private ArrayList<Recruiter> recruiterArrayList = new ArrayList<>();
+public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHolder> {
+    private ArrayList<User> recruiterArrayList = new ArrayList<>();
 
-    public RecruiterListAdapter(ArrayList<Recruiter> recruiterArrayList) {
+    public UserListAdapter(ArrayList<User> recruiterArrayList) {
         this.recruiterArrayList = recruiterArrayList;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate((R.layout.item_class_list), parent, false);
+                .inflate((R.layout.item_user_list), parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Recruiter current = recruiterArrayList.get(position);
-        holder.mClassNameTextView.setText(current.getName());
-        holder.mClassSizeTextView.setText(current.getEmail());
+        User current = recruiterArrayList.get(position);
+        holder.mUsernameTextView.setText(current.getName());
+        holder.mUserEmailTextView.setText(current.getEmail());
+        holder.mUserType.setText(current.getType());
 
     }
 
@@ -44,13 +45,16 @@ public class RecruiterListAdapter extends RecyclerView.Adapter<RecruiterListAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public View view;
-        public TextView mClassNameTextView;
-        public TextView mClassSizeTextView;
+        public TextView mUsernameTextView;
+        public TextView mUserEmailTextView;
+        public TextView mUserType;
+
         public ViewHolder(View itemView) {
             super(itemView);
             view = itemView;
-            mClassNameTextView = (TextView) itemView.findViewById(R.id.className);
-            mClassSizeTextView = (TextView) itemView.findViewById(R.id.classSize);
+            mUsernameTextView = (TextView) itemView.findViewById(R.id.userName);
+            mUserEmailTextView = (TextView) itemView.findViewById(R.id.userEmail);
+            mUserType = (TextView) itemView.findViewById(R.id.userType);
         }
     }
 }

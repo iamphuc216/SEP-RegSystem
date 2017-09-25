@@ -5,23 +5,25 @@ package com.uts.andy.RegSystem.model;
  */
 
 public class User {
-    String uID;
+    String name;
     String email;
+    String type;
 
     public User() {
     }
 
-    public User(String uID, String email) {
-        this.uID = uID;
+    public User(String name, String email, String type) {
+        this.name = name;
         this.email = email;
+        this.type = type;
     }
 
-    public String getuID() {
-        return uID;
+    public String getName() {
+        return name;
     }
 
-    public void setuID(String uID) {
-        this.uID = uID;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -30,5 +32,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

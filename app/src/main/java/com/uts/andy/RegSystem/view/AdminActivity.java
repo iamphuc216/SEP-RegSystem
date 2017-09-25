@@ -50,7 +50,7 @@ public class AdminActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout_admin);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
 
         navHeader = navigationView.getHeaderView(0);
@@ -73,6 +73,7 @@ public class AdminActivity extends AppCompatActivity {
 
         navHeadEmail = (TextView) findViewById(R.id.textView_email);
         if (firebaseAuth.getCurrentUser() != null){
+            navHeadEmail = (TextView) findViewById(R.id.textView_email);
             //navHeadEmail.setText(firebaseAuth.getCurrentUser().getEmail());
         }
     }
@@ -122,10 +123,10 @@ public class AdminActivity extends AppCompatActivity {
                     // Handle the camera action
                     navItemIndex = 0;
                     CURRENT_TAG = TAG_ONE;
-                } else if (id == R.id.nav_function2) {
+                } else if (id == R.id.nav_userManager) {
                     navItemIndex = 1;
                     CURRENT_TAG = TAG_TWO;
-                } else if (id == R.id.nav_function3) {
+                } else if (id == R.id.nav_classManager) {
                     navItemIndex = 2;
                     CURRENT_TAG = TAG_THREE;
                 } else {
@@ -138,7 +139,7 @@ public class AdminActivity extends AppCompatActivity {
                 }
                 item.setChecked(true);*/
                 loadFragment();
-                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_admin);
                 drawer.closeDrawer(GravityCompat.START);
                 return true;
             }

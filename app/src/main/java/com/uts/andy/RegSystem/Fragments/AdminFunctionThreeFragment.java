@@ -9,17 +9,14 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.uts.andy.RegSystem.Adapter.ClassListViewHolder;
 import com.uts.andy.RegSystem.R;
 import com.uts.andy.RegSystem.model.Class;
@@ -36,8 +33,8 @@ public class AdminFunctionThreeFragment extends Fragment {
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<Class> mClassArrayList = new ArrayList<Class>();
 
-    private DatabaseReference mFirebaseDatabase;
-    private FirebaseDatabase mFirebaseInstance;
+    private DatabaseReference databaseReference;
+    private FirebaseDatabase mFirebaseInstance = FirebaseDatabase.getInstance();
 
     public AdminFunctionThreeFragment() {
         // Required empty public constructor
@@ -49,31 +46,26 @@ public class AdminFunctionThreeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_admin_class_manager, container, false);
-
+        ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         //setUpClass();
         mRecyclerView = (RecyclerView) view.findViewById(R.id.Admin_classList);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mFirebaseInstance = FirebaseDatabase.getInstance();
-        mFirebaseDatabase = mFirebaseInstance.getReference("class");
-
-        final ProgressDialog progressDialog = new ProgressDialog(getContext());
-        progressDialog.setMessage("Loading...");
-        progressDialog.show();
-        mAdapter = new FirebaseRecyclerAdapter<Class, ClassListViewHolder>(Class.class, R.layout.item_class_list, ClassListViewHolder.class, mFirebaseDatabase) {
+        databaseReference = mFirebaseInstance.getReference("class");
+        mAdapter = new FirebaseRecyclerAdapter<Class, ClassListViewHolder>(
+                Class.class, R.layout.item_class_list, ClassListViewHolder.class, databaseReference) {
             @Override
             protected void populateViewHolder(ClassListViewHolder holder, Class currentClass, int position) {
-                //holder.mClassNameTextView.setText(currentClass.getClassName());
-                //holder.mClassSizeTextView.setText(String.valueOf(currentClass.getSize()) + " slots remain");
                 holder.setmClassNameTextView(currentClass.getClassName());
-                holder.setmClassSizeTextView(String.valueOf(currentClass.getSize()) + " slots remain");
+                holder.setmClassSizeTextView(String.valueOf(currentClass.getSize())
+                        + " slots remain");
 
             }
         };
 
-        mFirebaseDatabase.addValueEventListener(new ValueEventListener() {
+        /*databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot classSnapShot : dataSnapshot.getChildren()) {
@@ -90,13 +82,8 @@ public class AdminFunctionThreeFragment extends Fragment {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        });
-        progressDialog.dismiss();
-
+        });*/
         //mAdapter = new ClassListAdapter(mClassArrayList, ADMIN_CLASSMANAGER);
-        mRecyclerView.setAdapter(mAdapter);
-        //mAdapter.notifyDataSetChanged();
-
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,18 +94,22 @@ public class AdminFunctionThreeFragment extends Fragment {
 
             }
         });
+        mRecyclerView.setAdapter(mAdapter);
+        progressBar.setVisibility(View.GONE);
+        mRecyclerView.setVisibility(View.VISIBLE);
 
+        fab.setVisibility(View.VISIBLE);
         return view;
     }
 
-    private void setUpClass() {
+    /*private void setUpClass() {
         Class classOne = new Class("Coding Class", 10);
         Class classTwo = new Class("Math class", 5);
         Class classThree = new Class("Music", 10);
         mClassArrayList.add(classOne);
         mClassArrayList.add(classTwo);
         mClassArrayList.add(classThree);
-    }
+    }*/
 
     @Override
     public void onDestroy() {
