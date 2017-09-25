@@ -1,21 +1,19 @@
-package com.uts.andy.RegSystem.model;
+package com.uts.iamjinqianyu.RegSystem.model;
 
 /**
- * Created by iamji on 2017/9/21.
+ * Created by iamji on 2017/9/24.
  */
 
-public class User {
+public class Recruiter {
     String name;
     String email;
-    String type;
 
-    public User() {
+    public Recruiter() {
     }
 
-    public User(String name, String email, String type) {
+    public Recruiter(String name, String email) {
         this.name = name;
         this.email = email;
-        this.type = type;
     }
 
     public String getName() {
@@ -32,13 +30,5 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 }

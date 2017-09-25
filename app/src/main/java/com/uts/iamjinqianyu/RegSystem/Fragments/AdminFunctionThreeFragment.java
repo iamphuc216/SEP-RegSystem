@@ -1,7 +1,6 @@
-package com.uts.andy.RegSystem.Fragments;
+package com.uts.iamjinqianyu.RegSystem.Fragments;
 
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -17,10 +16,10 @@ import android.widget.ProgressBar;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.uts.andy.RegSystem.Adapter.ClassListViewHolder;
-import com.uts.andy.RegSystem.R;
-import com.uts.andy.RegSystem.model.Class;
-import com.uts.andy.RegSystem.view.ClassEditActivity;
+import com.uts.iamjinqianyu.RegSystem.Adapter.ClassListViewHolder;
+import com.uts.iamjinqianyu.RegSystem.R;
+import com.uts.iamjinqianyu.RegSystem.model.Class;
+import com.uts.iamjinqianyu.RegSystem.view.ClassEditActivity;
 
 import java.util.ArrayList;
 

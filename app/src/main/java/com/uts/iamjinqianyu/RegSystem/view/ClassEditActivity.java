@@ -1,4 +1,4 @@
-package com.uts.andy.RegSystem.view;
+package com.uts.iamjinqianyu.RegSystem.view;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,8 +12,8 @@ import android.widget.EditText;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.uts.andy.RegSystem.R;
-import com.uts.andy.RegSystem.model.Class;
+import com.uts.iamjinqianyu.RegSystem.R;
+import com.uts.iamjinqianyu.RegSystem.model.Class;
 
 public class ClassEditActivity extends AppCompatActivity {
     private DatabaseReference mFirebaseDatabase;

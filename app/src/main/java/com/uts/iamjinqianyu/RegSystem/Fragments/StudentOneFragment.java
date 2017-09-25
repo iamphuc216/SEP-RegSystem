@@ -1,4 +1,4 @@
-package com.uts.andy.RegSystem.Fragments;
+package com.uts.iamjinqianyu.RegSystem.Fragments;
 
 
 import android.os.Bundle;
@@ -7,15 +7,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.uts.andy.RegSystem.R;
+import com.uts.iamjinqianyu.RegSystem.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AdminFunctionOneFragment extends Fragment {
+public class StudentOneFragment extends Fragment {
 
 
-    public AdminFunctionOneFragment() {
+    public StudentOneFragment() {
         // Required empty public constructor
     }
 
@@ -24,7 +24,7 @@ public class AdminFunctionOneFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_admin_function_one, container, false);
+        return inflater.inflate(R.layout.fragment_student_one, container, false);
     }
 
 }

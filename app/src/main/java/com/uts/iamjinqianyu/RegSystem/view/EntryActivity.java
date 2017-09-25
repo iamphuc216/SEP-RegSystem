@@ -1,4 +1,4 @@
-package com.uts.andy.RegSystem.view;
+package com.uts.iamjinqianyu.RegSystem.view;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -21,8 +21,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.uts.andy.RegSystem.R;
-import com.uts.andy.RegSystem.model.User;
+import com.uts.iamjinqianyu.RegSystem.R;
+import com.uts.iamjinqianyu.RegSystem.model.User;
 
 public class EntryActivity extends AppCompatActivity {
 

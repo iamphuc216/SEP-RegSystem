@@ -1,4 +1,4 @@
-package com.uts.andy.RegSystem.Adapter;
+package com.uts.iamjinqianyu.RegSystem.Adapter;
 
 
 import android.support.v7.widget.RecyclerView;
@@ -8,9 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.uts.andy.RegSystem.R;
-import com.uts.andy.RegSystem.Views;
-import com.uts.andy.RegSystem.model.Class;
+import com.uts.iamjinqianyu.RegSystem.R;
+import com.uts.iamjinqianyu.RegSystem.Views;
+import com.uts.iamjinqianyu.RegSystem.model.Class;
 
 import java.util.ArrayList;
 

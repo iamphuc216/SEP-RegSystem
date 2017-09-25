@@ -1,7 +1,6 @@
-package com.uts.andy.RegSystem.Fragments;
+package com.uts.iamjinqianyu.RegSystem.Fragments;
 
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,18 +14,11 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.uts.andy.RegSystem.Adapter.ClassListViewHolder;
-import com.uts.andy.RegSystem.Adapter.UserListViewHolder;
-import com.uts.andy.RegSystem.R;
-import com.uts.andy.RegSystem.model.Recruiter;
-import com.uts.andy.RegSystem.model.User;
-
-import java.util.ArrayList;
+import com.uts.iamjinqianyu.RegSystem.Adapter.UserListViewHolder;
+import com.uts.iamjinqianyu.RegSystem.R;
+import com.uts.iamjinqianyu.RegSystem.model.User;
 
 /**
  * A simple {@link Fragment} subclass.

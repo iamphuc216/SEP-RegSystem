@@ -1,4 +1,4 @@
-package com.uts.andy.RegSystem.view;
+package com.uts.iamjinqianyu.RegSystem.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,10 +18,10 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.uts.andy.RegSystem.Fragments.AdminFunctionOneFragment;
-import com.uts.andy.RegSystem.Fragments.AdminFunctionThreeFragment;
-import com.uts.andy.RegSystem.Fragments.AdminFunctionTwoFragment;
-import com.uts.andy.RegSystem.R;
+import com.uts.iamjinqianyu.RegSystem.Fragments.AdminFunctionOneFragment;
+import com.uts.iamjinqianyu.RegSystem.Fragments.AdminFunctionThreeFragment;
+import com.uts.iamjinqianyu.RegSystem.Fragments.AdminFunctionTwoFragment;
+import com.uts.iamjinqianyu.RegSystem.R;
 
 public class AdminActivity extends AppCompatActivity {
     private NavigationView navigationView;

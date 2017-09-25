@@ -1,10 +1,10 @@
-package com.uts.andy.RegSystem.Adapter;
+package com.uts.iamjinqianyu.RegSystem.Adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.uts.andy.RegSystem.R;
+import com.uts.iamjinqianyu.RegSystem.R;
 
 /**
  * Created by iamji on 2017/9/24.

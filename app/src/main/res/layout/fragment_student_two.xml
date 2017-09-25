@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fui_buttonShadow"
-    tools:context="com.uts.andy.RegSystem.Fragments.StudentTwoFragment">
+    tools:context="com.uts.iamjinqianyu.RegSystem.Fragments.StudentTwoFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/classList"

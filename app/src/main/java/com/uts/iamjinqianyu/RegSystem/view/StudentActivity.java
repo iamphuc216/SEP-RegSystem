@@ -1,4 +1,4 @@
-package com.uts.andy.RegSystem.view;
+package com.uts.iamjinqianyu.RegSystem.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,10 +16,10 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.uts.andy.RegSystem.Fragments.StudentOneFragment;
-import com.uts.andy.RegSystem.Fragments.StudentTwoFragment;
-import com.uts.andy.RegSystem.R;
-import com.uts.andy.RegSystem.Views;
+import com.uts.iamjinqianyu.RegSystem.Fragments.StudentOneFragment;
+import com.uts.iamjinqianyu.RegSystem.Fragments.StudentTwoFragment;
+import com.uts.iamjinqianyu.RegSystem.R;
+import com.uts.iamjinqianyu.RegSystem.Views;
 
 public class StudentActivity extends AppCompatActivity implements Views {
     private NavigationView navigationView;

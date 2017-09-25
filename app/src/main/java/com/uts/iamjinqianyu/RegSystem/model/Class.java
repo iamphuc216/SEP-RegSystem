@@ -1,4 +1,4 @@
-package com.uts.andy.RegSystem.model;
+package com.uts.iamjinqianyu.RegSystem.model;
 
 /**
  * Created by iamji on 2017/9/24.

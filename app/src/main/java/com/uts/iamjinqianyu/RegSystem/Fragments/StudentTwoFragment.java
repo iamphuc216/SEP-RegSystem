@@ -1,4 +1,4 @@
-package com.uts.andy.RegSystem.Fragments;
+package com.uts.iamjinqianyu.RegSystem.Fragments;
 
 
 import android.os.Bundle;
@@ -13,9 +13,9 @@ import android.widget.ProgressBar;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.uts.andy.RegSystem.Adapter.ClassListViewHolder;
-import com.uts.andy.RegSystem.R;
-import com.uts.andy.RegSystem.model.Class;
+import com.uts.iamjinqianyu.RegSystem.Adapter.ClassListViewHolder;
+import com.uts.iamjinqianyu.RegSystem.R;
+import com.uts.iamjinqianyu.RegSystem.model.Class;
 
 /**
  * A simple {@link Fragment} subclass.
