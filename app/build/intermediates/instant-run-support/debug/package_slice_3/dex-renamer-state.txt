@@ -1,4 +1,0 @@
-#Mon Sep 25 17:21:21 AEST 2017
-base.0=D\:\\AndroidStudioProjects\\SEP-RegSystem\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_3
-renamed.0=classes.dex
-file.0=D\:\\AndroidStudioProjects\\SEP-RegSystem\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\5\\slice_3\\classes.dex

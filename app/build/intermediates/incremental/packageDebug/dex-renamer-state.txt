@@ -1,7 +1,0 @@
-#Mon Sep 25 23:09:13 AEST 2017
-base.0=D\:\\AndroidStudioProjects\\SEP-RegSystem\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_095174ea90c84499ebf92e4af8530a7dfac6b7c3
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=D\:\\AndroidStudioProjects\\SEP-RegSystem\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_8c67c93e70f354f53a5624553d9d55842cd762cc\\classes.dex
-base.1=D\:\\AndroidStudioProjects\\SEP-RegSystem\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_8c67c93e70f354f53a5624553d9d55842cd762cc
-file.0=D\:\\AndroidStudioProjects\\SEP-RegSystem\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_095174ea90c84499ebf92e4af8530a7dfac6b7c3\\classes.dex
