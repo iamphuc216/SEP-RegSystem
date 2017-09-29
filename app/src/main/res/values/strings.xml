@@ -20,4 +20,9 @@
     <string name="title_activity_entry">EntryActivity</string>
     <string name="title_activity_student">StudentActivity</string>
     <string name="title_activity_class_edit">Class Editor</string>
+    <string name="title_activity_user_edit">UserEditActivity</string>
+    <string name="title_activity_class_detial">ClassDetialActivity</string>
+    <string name="title_activity_class_detail">ClassDetailActivity</string>
+
+
 </resources>
