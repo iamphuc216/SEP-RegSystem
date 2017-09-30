@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.uts.iamjinqianyu.regSystem.R;
+import com.uts.iamjinqianyu.regSystem.bean.Class;
 
 public class ClassDetailActivity extends AppCompatActivity {
     TextView classNameTv;
@@ -25,10 +26,13 @@ public class ClassDetailActivity extends AppCompatActivity {
 
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference reference;
+    DatabaseReference personalRef;
     String uID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     String classId;
     Boolean isEnrolled = false;
+    String className;
+    String classSize;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +46,13 @@ public class ClassDetailActivity extends AppCompatActivity {
         classSizeTv = (TextView) findViewById(R.id.classSizeTv);
 
         Bundle bundle = getIntent().getBundleExtra("bundle");
+        className = bundle.getString("className");
+        classSize = bundle.getString("classSize");
         classNameTv.setText(bundle.getString("className"));
         classSizeTv.setText(bundle.getString("classSize") + " slots remain");
         classId = bundle.getString("cID");
         //isEnrolled();
-        new  QueueIsEnrolled().execute();
+        new QueueIsEnrolled().execute();
 
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -62,9 +68,10 @@ public class ClassDetailActivity extends AppCompatActivity {
                     Snackbar.make(view, "Enroll in !", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                     Log.d("DEBUG", String.valueOf(isEnrolled));
-                    isEnrolled = true;
+                    //isEnrolled = true;
                 } else {
-                    Snackbar.make(view, "Already Enroll in !", Snackbar.LENGTH_LONG)
+                    enrollClass();
+                    Snackbar.make(view, "Already Enroll in now withdraw!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
                 toggleFab();
@@ -72,10 +79,15 @@ public class ClassDetailActivity extends AppCompatActivity {
         });
     }
 
-    private void enrollClass (){
+    private void enrollClass() {
         reference = firebaseDatabase.getReference(classId);
         //String enrollID = reference.push().getKey();
-        reference.child(uID).setValue(true);
+        if (isEnrolled) {
+            reference.child(uID).setValue(false);
+        } else {
+            reference.child(uID).setValue(true);
+        }
+
 
         reference = firebaseDatabase.getReference("class").child(classId).child("size");
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -83,14 +95,30 @@ public class ClassDetailActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String currentSize = dataSnapshot.getValue(String.class);
                 Log.d("DEBUG", currentSize);
-                String newSize = sizeMinusOne(currentSize);
+                String newSize;
+
+                if (!isEnrolled) {
+                    newSize = plusOne(currentSize);
+                    removeClassFromPersonalClassList();
+                    isEnrolled = false;
+                } else {
+                    newSize = sizeMinusOne(currentSize);
+                    addClassToPersonalClassList();
+                    isEnrolled = true;
+                }
                 reference.setValue(newSize);
                 classSizeTv.setText(newSize);
+                //isEnrolled();
 
             }
 
             private String sizeMinusOne(String currentSize) {
                 int newSize = Integer.parseInt(currentSize) - 1;
+                return String.valueOf(newSize);
+            }
+
+            private String plusOne(String currentSize) {
+                int newSize = Integer.parseInt(currentSize) + 1;
                 return String.valueOf(newSize);
             }
 
@@ -101,7 +129,7 @@ public class ClassDetailActivity extends AppCompatActivity {
         });
     }
 
-    private void isEnrolled () {
+    private void isEnrolled() {
         reference = firebaseDatabase.getReference(classId).child(uID);
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -110,6 +138,7 @@ public class ClassDetailActivity extends AppCompatActivity {
                 if (dataSnapshot.getValue(Boolean.class) != null) {
                     isEnrolled = dataSnapshot.getValue(Boolean.class);
                     Log.d("DEBUG", String.valueOf(isEnrolled) + " by queue");
+                    toggleFab();
                 }
 
             }
@@ -122,7 +151,7 @@ public class ClassDetailActivity extends AppCompatActivity {
 
     }
 
-    private void toggleFab () {
+    private void toggleFab() {
         Log.d("DEBUG", String.valueOf(isEnrolled) + " for now");
         if (!isEnrolled) {
             fab.setImageResource(R.drawable.ic_done_black_24dp);
@@ -132,7 +161,18 @@ public class ClassDetailActivity extends AppCompatActivity {
 
     }
 
-    private  class QueueIsEnrolled extends AsyncTask<Void, Void, Void> {
+    private void addClassToPersonalClassList() {
+        Class enrolledClass = new Class(className, classSize);
+        personalRef = firebaseDatabase.getReference(uID);
+        personalRef.child(classId).setValue(enrolledClass);
+    }
+
+    private void removeClassFromPersonalClassList() {
+        personalRef = firebaseDatabase.getReference(uID);
+        personalRef.child(classId).removeValue();
+    }
+
+    private class QueueIsEnrolled extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected Void doInBackground(Void... params) {

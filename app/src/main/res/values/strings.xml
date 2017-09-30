@@ -13,16 +13,17 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string-array name="nav_item_activity_titles">
-        <item>Function1</item>
-        <item>Function2</item>
-        <item>Class Manager</item>
+        <item>Announcement</item>
+        <item>User</item>
+        <item>Class</item>
     </string-array>
     <string name="title_activity_entry">EntryActivity</string>
-    <string name="title_activity_student">StudentActivity</string>
+    <string name="title_activity_student">Student</string>
     <string name="title_activity_class_edit">Class Editor</string>
-    <string name="title_activity_user_edit">UserEditActivity</string>
-    <string name="title_activity_class_detial">ClassDetialActivity</string>
-    <string name="title_activity_class_detail">ClassDetailActivity</string>
+    <string name="title_activity_user_edit">UserEdit</string>
+    <string name="title_activity_class_detial">Class Detail</string>
+    <string name="title_activity_class_detail">Class Detail</string>
+    <string name="title_activity_announcement_edit">Announcement Editor</string>
 
 
 </resources>

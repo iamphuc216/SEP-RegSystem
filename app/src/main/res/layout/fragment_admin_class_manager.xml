@@ -1,17 +1,15 @@
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.uts.iamjinqianyu.regSystem.fragments.AdminFunctionThreeFragment">
+    tools:context="com.uts.iamjinqianyu.regSystem.fragments.AdminFunctionClassManager">
 
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/Admin_classList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/fui_buttonShadow"
         android:visibility="invisible" />
 
     <android.support.design.widget.FloatingActionButton
@@ -21,13 +19,13 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:visibility="invisible"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
+        app:srcCompat="@drawable/ic_edit_black_24dp" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center" />
 
-</FrameLayout>
+</android.support.design.widget.CoordinatorLayout>

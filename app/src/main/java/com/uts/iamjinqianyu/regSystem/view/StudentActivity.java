@@ -17,10 +17,10 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.uts.iamjinqianyu.regSystem.fragments.StudentOneFragment;
-import com.uts.iamjinqianyu.regSystem.fragments.StudentTwoFragment;
 import com.uts.iamjinqianyu.regSystem.R;
 import com.uts.iamjinqianyu.regSystem.Views;
+import com.uts.iamjinqianyu.regSystem.fragments.StudentOneFragment;
+import com.uts.iamjinqianyu.regSystem.fragments.StudentTwoFragment;
 
 public class StudentActivity extends AppCompatActivity implements Views {
     private NavigationView navigationView;

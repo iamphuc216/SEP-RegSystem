@@ -5,8 +5,10 @@ package com.uts.iamjinqianyu.regSystem.bean;
  */
 
 public class Class {
-    String className;
-    String size;
+    private String className;
+    private String size;
+    private String duration;
+    private String date;
 
     public Class() {
     }

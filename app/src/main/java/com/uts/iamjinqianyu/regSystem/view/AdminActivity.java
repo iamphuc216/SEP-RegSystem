@@ -19,8 +19,8 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.uts.iamjinqianyu.regSystem.fragments.AdminFunctionOneFragment;
-import com.uts.iamjinqianyu.regSystem.fragments.AdminFunctionThreeFragment;
-import com.uts.iamjinqianyu.regSystem.fragments.AdminFunctionTwoFragment;
+import com.uts.iamjinqianyu.regSystem.fragments.AdminFunctionClassManager;
+import com.uts.iamjinqianyu.regSystem.fragments.AdminFunctionUserManager;
 import com.uts.iamjinqianyu.regSystem.R;
 
 public class AdminActivity extends AppCompatActivity {
@@ -94,11 +94,11 @@ public class AdminActivity extends AppCompatActivity {
                 AdminFunctionOneFragment adminFunctionOneFragment = new AdminFunctionOneFragment();
                 return adminFunctionOneFragment;
             case 1 :
-                AdminFunctionTwoFragment adminFunctionTwoFragment = new AdminFunctionTwoFragment();
-                return adminFunctionTwoFragment;
+                AdminFunctionUserManager adminFunctionUserManager = new AdminFunctionUserManager();
+                return adminFunctionUserManager;
             case 2 :
-                AdminFunctionThreeFragment adminFunctionThreeFragment = new AdminFunctionThreeFragment();
-                return adminFunctionThreeFragment;
+                AdminFunctionClassManager adminFunctionClassManager = new AdminFunctionClassManager();
+                return adminFunctionClassManager;
             default: return new AdminFunctionOneFragment();
         }
     }

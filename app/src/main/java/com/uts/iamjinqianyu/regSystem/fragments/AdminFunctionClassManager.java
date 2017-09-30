@@ -24,7 +24,7 @@ import com.uts.iamjinqianyu.regSystem.view.ClassEditActivity;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AdminFunctionThreeFragment extends Fragment {
+public class AdminFunctionClassManager extends Fragment {
     private RecyclerView mRecyclerView;
     private FirebaseRecyclerAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -33,7 +33,7 @@ public class AdminFunctionThreeFragment extends Fragment {
     private DatabaseReference databaseReference;
     private FirebaseDatabase mFirebaseInstance = FirebaseDatabase.getInstance();
 
-    public AdminFunctionThreeFragment() {
+    public AdminFunctionClassManager() {
         // Required empty public constructor
     }
 
@@ -80,8 +80,8 @@ public class AdminFunctionThreeFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "编辑课程", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                /*Snackbar.make(view, "编辑课程", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
                 startActivity(new Intent(getContext(), ClassEditActivity.class));
 
             }

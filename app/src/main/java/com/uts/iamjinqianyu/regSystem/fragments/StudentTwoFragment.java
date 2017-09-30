@@ -15,8 +15,8 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.uts.iamjinqianyu.regSystem.adapter.ClassListViewHolder;
 import com.uts.iamjinqianyu.regSystem.R;
+import com.uts.iamjinqianyu.regSystem.adapter.ClassListViewHolder;
 import com.uts.iamjinqianyu.regSystem.bean.Class;
 import com.uts.iamjinqianyu.regSystem.view.ClassDetailActivity;
 

@@ -71,19 +71,6 @@ public class ClassEditActivity extends AppCompatActivity {
             Class newClass = new Class(className, classSize);
             mFirebaseDatabase.child(classID).setValue(newClass);
             mFirebaseDatabase = mFirebaseInstance.getReference();
-            //mFirebaseDatabase.child(classID).setValue("");
-            /*mFirebaseDatabase.child(classID).addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });*/
-
         } else {
             Class newClass = new Class(className, classSize);
             mFirebaseDatabase.child(classID).setValue(newClass);
@@ -92,4 +79,8 @@ public class ClassEditActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

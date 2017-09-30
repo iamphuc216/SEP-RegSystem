@@ -126,14 +126,14 @@ public class EntryActivity extends AppCompatActivity {
             ref = databaseInstance.getReference("user").child(uID).child("type");
 
             final String currentUserEmail = firebaseAuth.getCurrentUser().getEmail();
-            Log.d("DEBUG", currentUserEmail);
-            Log.d("DEBUG", uID);
+            //Log.d("DEBUG", currentUserEmail);
+            //Log.d("DEBUG", uID);
 
             ref.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     String userType = dataSnapshot.getValue(String.class);
-                    if (userType != null) Log.d("DEBUG", userType);
+                    //if (userType != null) Log.d("DEBUG", userType);
                     if (userType == null){
                         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                         User newUser = new User(firebaseUser.getDisplayName(), currentUserEmail, USER_TYPE_STUDENT);

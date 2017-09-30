@@ -5,8 +5,8 @@ package com.uts.iamjinqianyu.regSystem.bean;
  */
 
 public class Recruiter {
-    String name;
-    String email;
+    private String name;
+    private String email;
 
     public Recruiter() {
     }

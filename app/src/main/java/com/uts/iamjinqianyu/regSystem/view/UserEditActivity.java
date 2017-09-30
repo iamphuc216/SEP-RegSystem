@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
@@ -38,6 +39,8 @@ public class UserEditActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getBundleExtra("passBundle");
         if (bundle != null) {
+            uID = bundle.getString("passID");
+            Log.d("DEBUG", uID);
             nameTv.setText(bundle.getString("passName"));
             emailTv.setText(bundle.getString("passEmail"));
             typeTv.setText(bundle.getString("passType"));
@@ -69,8 +72,8 @@ public class UserEditActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 modifyUser(nameTv.getText().toString(), emailTv.getText().toString(), typeTv.getText().toString());
-                Snackbar.make(view, "Uer Modify Success", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                /*Snackbar.make(view, "Uer Modify Success", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -85,7 +88,9 @@ public class UserEditActivity extends AppCompatActivity {
 
 
         } else {
-            Snackbar.make(findViewById(R.id.activity_editUser), "Under Development", Snackbar.LENGTH_LONG)
+            User user = new User(name,  email, type);
+            reference.child(uID).setValue(user);
+            Snackbar.make(findViewById(R.id.activity_editUser), "Success Update Current User", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         }
 

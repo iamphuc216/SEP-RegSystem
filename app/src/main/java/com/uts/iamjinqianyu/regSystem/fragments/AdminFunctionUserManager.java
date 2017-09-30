@@ -25,7 +25,7 @@ import com.uts.iamjinqianyu.regSystem.view.UserEditActivity;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AdminFunctionTwoFragment extends Fragment {
+public class AdminFunctionUserManager extends Fragment {
     private RecyclerView mRecyclerView;
     private FirebaseRecyclerAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -34,7 +34,7 @@ public class AdminFunctionTwoFragment extends Fragment {
 
     private DatabaseReference mFirebaseDatabase;
     private FirebaseDatabase mFirebaseInstance;
-    public AdminFunctionTwoFragment() {
+    public AdminFunctionUserManager() {
         // Required empty public constructor
     }
 
@@ -43,7 +43,7 @@ public class AdminFunctionTwoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_admin_function_two, container, false);
+        View view = inflater.inflate(R.layout.fragment_admin_function_user_manager, container, false);
         ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         /*mRecyclerView = (RecyclerView) view.findViewById(R.id.user_list);
         mRecyclerView.setHasFixedSize(true);
@@ -77,9 +77,9 @@ public class AdminFunctionTwoFragment extends Fragment {
             @Override
             protected void populateViewHolder(UserListViewHolder holder, User current, int position) {
                 final User user = current;
-                String uID = getRef(position).getKey();
+                final String uID = getRef(position).getKey();
                 holder.setmUsernameTextView(current.getName());
-                Log.d("DEBUG", current.getName());
+                //Log.d("DEBUG", current.getName());
                 holder.setmUserEmailTextView(current.getEmail());
                 holder.setmUserType(current.getType());
                 holder.view.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +87,8 @@ public class AdminFunctionTwoFragment extends Fragment {
                     public void onClick(View v) {
                         Intent intent = new Intent(getContext(), UserEditActivity.class);
                         Bundle bundle = new Bundle();
+                        Log.d("DEBUG", uID);
+                        bundle.putString("passID", uID);
                         bundle.putString("passName", user.getName());
                         bundle.putString("passEmail", user.getEmail());
                         bundle.putString("passType", user.getType());

@@ -5,9 +5,9 @@ package com.uts.iamjinqianyu.regSystem.bean;
  */
 
 public class User {
-    String name;
-    String email;
-    String type;
+    private String name;
+    private String email;
+    private String type;
 
     public User() {
     }
