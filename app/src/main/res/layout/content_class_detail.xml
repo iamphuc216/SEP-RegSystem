@@ -29,4 +29,15 @@
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ClassNameTv" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="8dp"
+        android:text=" slots remain"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toRightOf="@+id/classSizeTv"
+        app:layout_constraintTop_toBottomOf="@+id/ClassNameTv" />
 </android.support.constraint.ConstraintLayout>

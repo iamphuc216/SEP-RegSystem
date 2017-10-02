@@ -4,10 +4,10 @@
         <item
             android:id="@+id/nav_function1"
 
-            android:title="function1" />
+            android:title="Home" />
         <item
             android:id="@+id/nav_function2"
 
-            android:title="function2" />
+            android:title="Enroll New Class" />
     </group>
 </menu>

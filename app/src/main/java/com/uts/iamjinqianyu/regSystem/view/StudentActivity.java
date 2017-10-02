@@ -27,22 +27,14 @@ public class StudentActivity extends AppCompatActivity implements Views {
     private DrawerLayout drawer;
     private View navHeader;
     private Toolbar toolbar;
-    /*FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
-
-    private ArrayList<Class> mClassArrayList = new ArrayList<Class>();*/
 
     public static int navItemIndex = 0;
-
     private static final String TAG_ONE = "one";
     private static final String TAG_TWO = "two";
     public static String CURRENT_TAG = TAG_ONE;
     private final String KEY_NAVINDEX = "KEY_NAVINDEX";
     private final String KEY_CURRENT_TAG = "KEY_CURRENT_TAG";
-    private String[] activityTitles = {"function 1", "function 2"};
+    private String[] activityTitles = {"Home", "New Class"};
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
     @Override
@@ -62,27 +54,7 @@ public class StudentActivity extends AppCompatActivity implements Views {
             Log.d("DEBUG onCreate", CURRENT_TAG + " is null");
             loadFragment();
         }
-        /*setUpClass();
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.classList);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-
-        mAdapter = new ClassListAdapter(mClassArrayList, STUDENT_CLASSLIST);
-        mRecyclerView.setAdapter(mAdapter);*/
-
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "sign out", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                firebaseAuth.signOut();
-                startActivity(new Intent(StudentActivity.this, EntryActivity.class));
-
-            }
-        });*/
     }
 
     public void loadFragment() {

@@ -49,7 +49,7 @@ public class ClassDetailActivity extends AppCompatActivity {
         className = bundle.getString("className");
         classSize = bundle.getString("classSize");
         classNameTv.setText(bundle.getString("className"));
-        classSizeTv.setText(bundle.getString("classSize") + " slots remain");
+        classSizeTv.setText(bundle.getString("classSize"));
         classId = bundle.getString("cID");
         //isEnrolled();
         new QueueIsEnrolled().execute();
