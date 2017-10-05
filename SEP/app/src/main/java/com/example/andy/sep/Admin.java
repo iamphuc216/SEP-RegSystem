@@ -65,5 +65,14 @@ public class Admin extends AppCompatActivity {
             }
         });
 
+        Button toA = (Button) findViewById(R.id.toAnnouncement);
+        toA.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(Admin.this, announcement.class);
+                intent.putExtra("UID", "Test");
+                startActivity(intent);
+            }
+        });
     }
 }

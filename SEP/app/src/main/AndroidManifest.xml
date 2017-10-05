@@ -30,7 +30,12 @@
             android:name=".ManageClass"
             android:label="@string/title_activity_manage_class"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".changeClassDetails"></activity>
+        <activity android:name=".changeClassDetails" />
+        <activity
+            android:name=".announcement"
+            android:label="@string/title_activity_announcement"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".pwReset"></activity>
     </application>
 
 </manifest>

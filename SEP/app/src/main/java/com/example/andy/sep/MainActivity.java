@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText mReligion;
     private EditText mType;
     private DatabaseReference mDatabase;
+    private String url = "https://sepfirebaseproject.firebaseio.com/";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,10 +71,14 @@ public class MainActivity extends AppCompatActivity {
         //
         // [START initialize_database_ref]
         mDatabase = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReferenceFromUrl(url);
+
         // [END initialize_database_ref]
 
         Button signIn = (Button) findViewById(R.id.signIn);
         Button signUp = (Button) findViewById(R.id.signUp);
+        Button forgot = (Button) findViewById(R.id.fPW);
+
         final Button update = (Button) findViewById(R.id.updateBtr);
 
         demo.setOnClickListener(new View.OnClickListener(){
@@ -94,7 +100,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+        forgot.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(MainActivity.this, pwReset.class);
+                startActivity(intent);
+            }
+        });
         survey.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){

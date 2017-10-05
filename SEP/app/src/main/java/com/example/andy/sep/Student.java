@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.widget.Toast;
 
 
+import com.example.andy.sep.models.Announcement;
 import com.example.andy.sep.models.ClassAdapter;
 import com.example.andy.sep.models.ClassInfo;
 import com.example.andy.sep.models.UserDetails;
@@ -35,6 +36,8 @@ public class Student extends AppCompatActivity implements AdapterView.OnItemClic
     private DatabaseReference mDatabase;
     private DatabaseReference classRef;
     private DatabaseReference enrollment;
+    private DatabaseReference announcement;
+    private TextView ac;
     private ListView classListOfStu;
     private ClassAdapter adapter;
     private String UID;
@@ -49,10 +52,12 @@ public class Student extends AppCompatActivity implements AdapterView.OnItemClic
         UID = getIntent().getStringExtra("UID");
         hello = (TextView) findViewById(R.id.test1);
         classListOfStu = (ListView) findViewById(R.id.classListForStu);
+        ac = (TextView) findViewById(R.id.textView8);
 
         mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(UID);
         classRef = FirebaseDatabase.getInstance().getReference().child("classes");
         enrollment = FirebaseDatabase.getInstance().getReference().child("enrollments");
+        announcement = FirebaseDatabase.getInstance().getReference().child("announcement");
 
         Button logout = (Button) findViewById(R.id.logoutStu);
         logout.setOnClickListener(new View.OnClickListener(){
@@ -64,6 +69,19 @@ public class Student extends AppCompatActivity implements AdapterView.OnItemClic
             }
         });
 
+        announcement.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    Announcement c = ds.getValue(Announcement.class);
+                    ac.setText(c.getContents() + " date: " + c.getDate());
+                    //System.out.println(user.getUserType());
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
 
         hello.setText("Hi" + UID);
 

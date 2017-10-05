@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.andy.sep.announcement">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_announcement" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/publish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="Announcement Title:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView9"
+            android:layout_weight="1"
+            android:layout_marginTop="59dp"
+            android:textSize="24sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="?attr/colorAccent" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Title"
+            android:ems="10"
+            android:layout_below="@+id/textView9"
+            android:layout_alignParentStart="true"
+            android:id="@+id/aTitle" />
+
+        <TextView
+            android:text="Content:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/aTitle"
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView10"
+            android:textSize="24sp"
+            android:textColor="@color/colorAccent"
+            android:fontFamily="sans-serif-condensed" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences|textMultiLine"
+            android:text="Type something here"
+            android:ems="10"
+            android:layout_below="@+id/textView10"
+            android:layout_alignParentStart="true"
+            android:id="@+id/contentBody"
+            android:singleLine="false"
+            android:selectAllOnFocus="false"
+            android:maxLines="10" />
+
+        <TextView
+            android:text="Publish date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/contentBody"
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView11"
+            android:textSize="24sp"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/colorAccent" />
+
+        <TextView
+            android:text="History Announcements"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView12"
+            android:layout_above="@+id/historyAnnouncement"
+            android:layout_toEndOf="@+id/textView9"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:text="date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/date"
+            android:textSize="18sp"
+            android:layout_below="@+id/textView11"
+            android:layout_alignParentStart="true" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/historyAnnouncement"
+            android:layout_below="@+id/date"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="34dp" />
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
