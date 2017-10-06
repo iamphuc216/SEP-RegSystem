@@ -28,6 +28,7 @@ public class AdminActivity extends AppCompatActivity {
     private DrawerLayout drawer;
     private View navHeader;
     private Toolbar toolbar;
+    private TextView navHeaderName;
     private TextView navHeadEmail;
 
     public static int navItemIndex = 0;
@@ -43,6 +44,7 @@ public class AdminActivity extends AppCompatActivity {
     private String[] activityTitles;
 
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,9 +54,11 @@ public class AdminActivity extends AppCompatActivity {
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout_admin);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
-
+        //get nav_header view here
         navHeader = navigationView.getHeaderView(0);
-
+        //
+        navHeadEmail = (TextView) navHeader.findViewById(R.id.textView_navemail);
+        navHeaderName = (TextView) navHeader.findViewById(R.id.text_name);
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
 
         setNavigationView();
@@ -71,14 +75,13 @@ public class AdminActivity extends AppCompatActivity {
             loadFragment();
         }
 
-        navHeadEmail = (TextView) findViewById(R.id.textView_email);
-        if (firebaseAuth.getCurrentUser() != null){
-            navHeadEmail = (TextView) findViewById(R.id.textView_email);
-            //navHeadEmail.setText(firebaseAuth.getCurrentUser().getEmail());
+        if (firebaseAuth.getCurrentUser() != null) {
+            //navHeadEmail = (TextView) findViewById(R.id.textView_email);
+            navHeadEmail.setText(firebaseAuth.getCurrentUser().getEmail());
         }
     }
 
-    public void loadFragment(){
+    public void loadFragment() {
         selectNavMenu();
         setToolbar();
         Fragment fragment = getFragment();
@@ -88,18 +91,19 @@ public class AdminActivity extends AppCompatActivity {
     }
 
 
-    private Fragment getFragment(){
-        switch (navItemIndex){
-            case 0 :
+    private Fragment getFragment() {
+        switch (navItemIndex) {
+            case 0:
                 AdminFunctionOneFragment adminFunctionOneFragment = new AdminFunctionOneFragment();
                 return adminFunctionOneFragment;
-            case 1 :
+            case 1:
                 AdminFunctionUserManager adminFunctionUserManager = new AdminFunctionUserManager();
                 return adminFunctionUserManager;
-            case 2 :
+            case 2:
                 AdminFunctionClassManager adminFunctionClassManager = new AdminFunctionClassManager();
                 return adminFunctionClassManager;
-            default: return new AdminFunctionOneFragment();
+            default:
+                return new AdminFunctionOneFragment();
         }
     }
 
@@ -108,11 +112,11 @@ public class AdminActivity extends AppCompatActivity {
     }
 
 
-    private void setToolbar(){
+    private void setToolbar() {
         getSupportActionBar().setTitle(activityTitles[navItemIndex]);
     }
 
-    private void setNavigationView(){
+    private void setNavigationView() {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
