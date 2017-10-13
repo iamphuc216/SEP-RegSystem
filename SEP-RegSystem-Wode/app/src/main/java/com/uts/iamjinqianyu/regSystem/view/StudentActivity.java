@@ -166,7 +166,7 @@ public class StudentActivity extends AppCompatActivity implements Views {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             firebaseAuth.signOut();
-            startActivity(new Intent(StudentActivity.this, EntryActivity.class));
+            startActivity(new Intent(StudentActivity.this, SignIn.class));
             finish();
             return true;
         }

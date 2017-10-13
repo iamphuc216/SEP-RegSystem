@@ -57,10 +57,20 @@
             android:id="@+id/test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="137dp"
-            android:text="Button"
+            android:layout_alignStart="@+id/toStu"
             android:layout_below="@+id/toStu"
-            android:layout_alignStart="@+id/toStu" />
+            android:layout_marginTop="137dp"
+            android:text="Nomarlly login" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/toAdmin"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="66dp"
+            android:text="Fast login for demo"
+            android:textSize="30sp" />
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>

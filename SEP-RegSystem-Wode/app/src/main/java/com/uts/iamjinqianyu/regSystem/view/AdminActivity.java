@@ -188,7 +188,7 @@ public class AdminActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             firebaseAuth.signOut();
-            startActivity(new Intent(AdminActivity.this, EntryActivity.class));
+            startActivity(new Intent(AdminActivity.this, SignIn.class));
             finish();
             return true;
         }

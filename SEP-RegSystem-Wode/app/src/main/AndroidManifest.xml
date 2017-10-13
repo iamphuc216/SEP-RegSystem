@@ -18,6 +18,14 @@
             android:name=".view.SignIn">
         </activity>
         <activity
+            android:name=".view.pwReset">
+        </activity>
+        <activity android:name=".view.Q1Activity"> </activity>
+        <activity android:name=".view.Q2Activity"> </activity>
+        <activity android:name=".view.Q3Activity"> </activity>
+        <activity android:name=".Survey.CompleteActivity"> </activity>
+        <activity android:name=".Survey.EnterDetailActivity"> </activity>
+        <activity
             android:name=".view.AdminActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

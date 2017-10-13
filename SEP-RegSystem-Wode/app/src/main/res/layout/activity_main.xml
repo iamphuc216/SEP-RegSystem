@@ -30,21 +30,21 @@
         android:layout_alignStart="@+id/mPassword" />
 
     <Button
-        android:text="Signup"
+        android:id="@+id/signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_alignStart="@+id/mPassword"
-        android:id="@+id/signUp" />
+        android:layout_centerVertical="true"
+        android:text="Signup"
+        android:visibility="invisible" />
 
     <Button
         android:text="Signin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="58dp"
-        android:id="@+id/signIn" />
+        android:id="@+id/signIn"
+        android:layout_above="@+id/firstName"
+        android:layout_toEndOf="@+id/signUp" />
 
     <EditText
         android:id="@+id/AccountField"
@@ -80,12 +80,13 @@
         android:id="@+id/firstName" />
 
     <Button
-        android:text="Update"
+        android:id="@+id/updateBtr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/updateBtr"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/firstName" />
+        android:layout_alignStart="@+id/firstName"
+        android:text="Update"
+        android:visibility="invisible" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -128,12 +129,13 @@
         style="@style/Widget.AppCompat.Button.Colored" />
 
     <Button
-        android:text="For demo"
+        android:id="@+id/demo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/demo"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:text="For demo"
+        android:visibility="invisible" />
 
     <Button
         android:id="@+id/fPW"

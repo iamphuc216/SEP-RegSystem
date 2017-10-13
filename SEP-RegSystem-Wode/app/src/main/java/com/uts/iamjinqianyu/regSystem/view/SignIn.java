@@ -65,6 +65,8 @@ public class SignIn extends AppCompatActivity {
         Button demo = (Button) findViewById(R.id.demo);
         Button forgot = (Button) findViewById(R.id.fPW);
 
+
+
         //[START initialize_auth]
         mAuth = FirebaseAuth.getInstance();
         //
@@ -108,13 +110,13 @@ public class SignIn extends AppCompatActivity {
             }
         });
 
-        /*survey.setOnClickListener(new View.OnClickListener(){
+        survey.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(SignIn.this, Q1Activity.class);
                 startActivity(intent);
             }
-        });*/
+        });
 
         signIn.setOnClickListener(new View.OnClickListener(){
             @Override

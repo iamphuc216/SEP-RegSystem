@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/completeTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Congratulation! You complete the survey"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/regmemberBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Become a member"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/completeTv"
+        android:layout_alignEnd="@+id/completeTv"
+        android:layout_marginRight="69dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginBottom="220dp" />
+
+    <Button
+        android:id="@+id/returnBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/regmemberBtn"
+        android:layout_alignLeft="@+id/regmemberBtn"
+        android:layout_alignRight="@+id/regmemberBtn"
+        android:layout_alignStart="@+id/regmemberBtn"
+        android:layout_alignTop="@+id/regmemberBtn"
+        android:layout_marginTop="52dp"
+        android:text="Return to main menu" />
+</RelativeLayout>
