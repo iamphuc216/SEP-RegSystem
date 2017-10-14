@@ -11,20 +11,14 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".view.EntryActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity
-            android:name=".view.SignIn">
-        </activity>
-        <activity
-            android:name=".view.pwReset">
-        </activity>
-        <activity android:name=".view.Q1Activity"> </activity>
-        <activity android:name=".view.Q2Activity"> </activity>
-        <activity android:name=".view.Q3Activity"> </activity>
-        <activity android:name=".Survey.CompleteActivity"> </activity>
-        <activity android:name=".Survey.EnterDetailActivity"> </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".view.SignIn" />
+        <activity android:name=".view.pwReset" />
+        <activity android:name=".view.Q1Activity" />
+        <activity android:name=".view.Q2Activity" />
+        <activity android:name=".view.Q3Activity" />
+        <activity android:name=".Survey.CompleteActivity" />
+        <activity android:name=".Survey.EnterDetailActivity" />
         <activity
             android:name=".view.AdminActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -93,11 +87,16 @@
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+        <activity
+            android:name=".view.RecruiterActivity"
+            android:label="@string/title_activity_recruiter"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".fragments.RecruiterOneFragment"></activity>
     </application>
 
 </manifest>

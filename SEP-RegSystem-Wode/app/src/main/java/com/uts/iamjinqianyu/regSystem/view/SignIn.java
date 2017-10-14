@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.uts.iamjinqianyu.regSystem.R;
+import com.uts.iamjinqianyu.regSystem.bean.User;
 
 
 public class SignIn extends AppCompatActivity {
@@ -66,7 +67,6 @@ public class SignIn extends AppCompatActivity {
         Button forgot = (Button) findViewById(R.id.fPW);
 
 
-
         //[START initialize_auth]
         mAuth = FirebaseAuth.getInstance();
         //
@@ -76,6 +76,9 @@ public class SignIn extends AppCompatActivity {
         //DatabaseReference ref = FirebaseDatabase.getInstance().getReferenceFromUrl(url);
 
         // [END initialize_database_ref]
+        //Testing area:
+        /*User u = new User("abc", "rec@c.com", "rec");
+        mDatabase.child("user").child("MNGGEgPUbMWWNNS5aUDSOKysPH83").setValue(u);*/
 
         Button signIn = (Button) findViewById(R.id.signIn);
         Button signUp = (Button) findViewById(R.id.signUp);
@@ -178,11 +181,11 @@ public class SignIn extends AppCompatActivity {
                                         startActivity(intent);
                                         finish();
                                     }
-                                    /*else if(userType.equals("rec")){
-                                        Intent intent = new Intent(SignIn.this, Recruiter.class);
+                                    else if(userType.equals("rec")){
+                                        Intent intent = new Intent(SignIn.this, RecruiterActivity.class);
                                         intent.putExtra("UID", userId);
                                         startActivity(intent);
-                                    }*/
+                                    }
                                 }
 
                                 @Override

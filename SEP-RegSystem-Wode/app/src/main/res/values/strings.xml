@@ -25,6 +25,7 @@
     <string name="title_activity_class_detail">Class Detail</string>
     <string name="title_activity_announcement_edit">Announcement Editor</string>
     <string name="title_activity_login">login</string>
+    <string name="title_activity_recruiter">RecruiterActivity</string>
 
 
 </resources>

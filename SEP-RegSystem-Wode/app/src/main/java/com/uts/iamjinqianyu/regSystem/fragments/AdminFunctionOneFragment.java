@@ -4,7 +4,6 @@ package com.uts.iamjinqianyu.regSystem.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +35,7 @@ public class AdminFunctionOneFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_admin_function_one, container, false);
-        final TextView announcementTv = (TextView) view.findViewById(R.id.announcementContent_TextView);
+        final TextView announcementTv = (TextView) view.findViewById(R.id.announcementContent_rec);
 
         announcementRef.addValueEventListener(new ValueEventListener() {
             @Override

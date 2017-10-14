@@ -1,9 +1,9 @@
 package com.uts.iamjinqianyu.regSystem.fragments;
 
-
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -21,23 +21,21 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.uts.iamjinqianyu.regSystem.R;
 import com.uts.iamjinqianyu.regSystem.adapter.ClassListViewHolder;
+import com.uts.iamjinqianyu.regSystem.adapter.SurveyListViewHolder;
 import com.uts.iamjinqianyu.regSystem.bean.Class;
+import com.uts.iamjinqianyu.regSystem.bean.Survey;
 import com.uts.iamjinqianyu.regSystem.view.ClassDetailActivity;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class StudentOneFragment extends Fragment {
+public class RecruiterOneFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private FirebaseRecyclerAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private TextView announcementTv;
 
     private FirebaseDatabase mFirebaseInstance = FirebaseDatabase.getInstance();
-    private String uID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-    private String classID;
+    private String newUID;
 
-    public StudentOneFragment() {
+    public RecruiterOneFragment() {
         // Required empty public constructor
     }
 
@@ -46,24 +44,25 @@ public class StudentOneFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_student_one, container, false);
+        View view = inflater.inflate(R.layout.fragment_recruiter_one, container, false);
         announcementTv = (TextView) view.findViewById(R.id.announcementContent_rec);
         setUpAnnouncement();
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        /*mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_survey);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        DatabaseReference classReference = mFirebaseInstance.getReference(uID);
-        mAdapter = new FirebaseRecyclerAdapter<Class, ClassListViewHolder>(
-                Class.class, R.layout.item_class_list, ClassListViewHolder.class, classReference) {
+        DatabaseReference surveyReference = mFirebaseInstance.getReference("newUsers");
+
+        mAdapter = new FirebaseRecyclerAdapter<Survey, SurveyListViewHolder>(
+                Survey.class, R.layout.item_survey_list, SurveyListViewHolder.class, surveyReference) {
             @Override
-            protected void populateViewHolder(ClassListViewHolder holder, final Class currentClass, int position) {
+            protected void populateViewHolder(SurveyListViewHolder holder, final Survey currentClass, int position) {
                 if (currentClass != null) {
-                    classID = getRef(position).getKey();
-                    holder.setmClassNameTextView(currentClass.getClassName());
-                    holder.setmClassSizeTextView(currentClass.getSize() + " slots remain");
+                    newUID = getRef(position).getKey();
+                    holder.setApplicantTextView(currentClass.getFirstname() + " " + currentClass.getLastname());
+
                     if (mRecyclerView.getVisibility() == View.INVISIBLE) {
                         mRecyclerView.setVisibility(View.VISIBLE);
                     }
@@ -74,16 +73,15 @@ public class StudentOneFragment extends Fragment {
                     public void onClick(View v) {
                         Intent intent = new Intent(getContext(), ClassDetailActivity.class);
                         Bundle bundle = new Bundle();
-                        bundle.putString("cID", classID);
-                        bundle.putString("className", currentClass.getClassName());
-                        bundle.putString("classSize", currentClass.getSize());
+                        bundle.putString("firstName", currentClass.getFirstname());
+                        bundle.putString("lastName", currentClass.getLastname());
                         intent.putExtra("bundle", bundle);
                         startActivity(intent);
                     }
                 });
             }
         };
-        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mAdapter);*/
         return view;
     }
 
