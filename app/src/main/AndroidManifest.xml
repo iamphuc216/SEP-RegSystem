@@ -80,7 +80,7 @@
         <activity
             android:name=".view.AnnouncementEditActivity"
             android:label="@string/title_activity_announcement_edit"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

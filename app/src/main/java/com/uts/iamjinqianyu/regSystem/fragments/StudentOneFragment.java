@@ -55,11 +55,13 @@ public class StudentOneFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        DatabaseReference classReference = mFirebaseInstance.getReference(uID);
+        DatabaseReference classReference = mFirebaseInstance
+                .getReference("student_enrolled_class").child(uID);
         mAdapter = new FirebaseRecyclerAdapter<Class, ClassListViewHolder>(
                 Class.class, R.layout.item_class_list, ClassListViewHolder.class, classReference) {
             @Override
-            protected void populateViewHolder(ClassListViewHolder holder, final Class currentClass, int position) {
+            protected void populateViewHolder(ClassListViewHolder holder,
+                                              final Class currentClass, int position) {
                 if (currentClass != null) {
                     classID = getRef(position).getKey();
                     holder.setmClassNameTextView(currentClass.getClassName());
@@ -87,7 +89,7 @@ public class StudentOneFragment extends Fragment {
         return view;
     }
 
-    private void setUpAnnouncement(){
+    private void setUpAnnouncement() {
         DatabaseReference announcementRef = mFirebaseInstance.getReference("announcement");
         announcementRef.addValueEventListener(new ValueEventListener() {
             @Override

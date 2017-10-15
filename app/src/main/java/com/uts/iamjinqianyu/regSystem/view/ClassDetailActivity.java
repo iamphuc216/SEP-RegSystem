@@ -80,7 +80,7 @@ public class ClassDetailActivity extends AppCompatActivity {
     }
 
     private void enrollClass() {
-        reference = firebaseDatabase.getReference(classId);
+        reference = firebaseDatabase.getReference("class_enrolled_student").child(classId);
         //String enrollID = reference.push().getKey();
         if (isEnrolled) {
             reference.child(uID).setValue(false);
@@ -130,7 +130,7 @@ public class ClassDetailActivity extends AppCompatActivity {
     }
 
     private void isEnrolled() {
-        reference = firebaseDatabase.getReference(classId).child(uID);
+        reference = firebaseDatabase.getReference("class_enrolled_student").child(classId).child(uID);
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -163,12 +163,12 @@ public class ClassDetailActivity extends AppCompatActivity {
 
     private void addClassToPersonalClassList() {
         Class enrolledClass = new Class(className, classSize);
-        personalRef = firebaseDatabase.getReference(uID);
+        personalRef = firebaseDatabase.getReference("student_enrolled_class").child(uID);
         personalRef.child(classId).setValue(enrolledClass);
     }
 
     private void removeClassFromPersonalClassList() {
-        personalRef = firebaseDatabase.getReference(uID);
+        personalRef = firebaseDatabase.getReference("student_enrolled_class").child(uID);
         personalRef.child(classId).removeValue();
     }
 
