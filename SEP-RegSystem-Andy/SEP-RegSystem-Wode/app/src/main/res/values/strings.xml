@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">RegSystem</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main_screen">MainScreen</string>
+    <string name="action_log_out">Log out</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="nav_item_activity_titles">
+        <item>Announcement</item>
+        <item>User</item>
+        <item>Class</item>
+    </string-array>
+    <string name="title_activity_entry">EntryActivity</string>
+    <string name="title_activity_student">Student</string>
+    <string name="title_activity_class_edit">Class Editor</string>
+    <string name="title_activity_user_edit">UserEdit</string>
+    <string name="title_activity_class_detial">Class Detail</string>
+    <string name="title_activity_class_detail">Class Detail</string>
+    <string name="title_activity_announcement_edit">Announcement Editor</string>
+    <string name="title_activity_login">login</string>
+    <string name="title_activity_recruiter">RecruiterActivity</string>
+    <string name="title_activity_servey">ServeyActivity</string>
+
+
+</resources>
